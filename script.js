@@ -73,6 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor(timeLeft / 60);
         const seconds = timeLeft % 60;
         timerElement.textContent = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        if (timeLeft <= 0) {
+            alert("Time's up! Test submitted.");
+            // Add logic to submit or end the test here
+        }
     }, 1000);
 
     // Question Palette
@@ -129,7 +133,17 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].className = `palette-button ${questionStatus[i]}`;
         }
+        // Update Legend counts
+        const answeredCount = questionStatus.filter(status => status === 'answered').length;
+        const notAnsweredCount = questionStatus.filter(status => status === 'not-answered').length;
+        const markedCount = questionStatus.filter(status => status === 'marked').length;
+        const notVisitedCount = questionStatus.filter(status => status === 'not-visited').length;
+        document.querySelector('.legend .answered').textContent = `${answeredCount} Answered`;
+        document.querySelector('.legend .not-answered').textContent = `${notAnsweredCount} Not Answered`;
+        document.querySelector('.legend .marked').textContent = `${markedCount} Marked`;
     }
 
+    // Initialize
     updateQuestion();
+    updatePalette();
 });
