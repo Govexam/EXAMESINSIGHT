@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Year Plan Government Exam</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <button class="section-btn">Sections</button>
+            <span>RBB NTPC</span>
+        </div>
+        <div class="header-right">
+            <select id="language">
+                <option value="english">English</option>
+            </select>
+            <span id="timer">Time Left: 89:59</span>
+            <img src="profile-icon.png" alt="Profile" class="profile-icon">
+            <button id="pause">Pause Test</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="question-section">
+            <h2>Question No <span id="question-number">1</span></h2>
+            <p id="question-text">How many triangles are present in the given figure?</p>
+            <img src="triangle.png" alt="Question Figure" id="question-image" style="max-width: 200px;">
+            <div class="options">
+                <label><input type="radio" name="answer" value="a"> a) 18</label><br>
+                <label><input type="radio" name="answer" value="b"> b) 21</label><br>
+                <label><input type="radio" name="answer" value="c"> c) 20</label><br>
+                <label><input type="radio" name="answer" value="d"> d) 22</label>
+            </div>
+            <div class="buttons">
+                <button id="mark-review">Mark for Review & Next</button>
+                <button id="clear">Clear Response</button>
+                <button id="save-next">Save & Next</button>
+            </div>
+        </div>
+
+        <div class="palette-section">
+            <h3>Legend</h3>
+            <div class="legend">
+                <span class="legend-item answered">0 Answered</span>
+                <span class="legend-item not-answered">1 Not Answered</span>
+                <span class="legend-item marked">0 Marked</span>
+            </div>
+            <p>You are viewing RBB NTPC section</p>
+            <h3>Question Palette</h3>
+            <div id="question-palette"></div>
+            <div class="nav-buttons">
+                <button id="question-paper">Question Paper</button>
+                <button id="instruction">Instruction</button>
+                <button id="profile-btn">Profile</button>
+                <button id="submit">Submit</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
