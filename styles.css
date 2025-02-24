@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.header-left button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.header-right select, .header-right button {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+.question-section {
+    flex: 2;
+    padding: 20px;
+    background-color: white;
+    border-right: 1px solid #ccc;
+}
+
+.palette-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #e9f0f8;
+}
+
+.options label {
+    margin: 10px 0;
+    display: block;
+}
+
+.buttons button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+#question-palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.palette-button {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #ddd;
+    font-size: 12px;
+}
+
+.not-visited { background-color: #ddd; }
+.not-answered { background-color: #ff4444; }
+.answered { background-color: #00dd00; }
+.marked { background-color: #9999ff; }
+
+.legend {
+    margin: 10px 0;
+}
+
+.legend-item {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.answered { background-color: #00dd00; color: white; }
+.not-answered { background-color: #ff4444; color: white; }
+.marked { background-color: #9999ff; color: white; }
+
+.nav-buttons button {
+    margin: 5px 0;
+    padding: 5px 10px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    background-color: #0056b3;
+}
