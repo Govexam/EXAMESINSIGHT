@@ -1,0 +1,57 @@
+// Define the questions in TCS CGL format
+function generateTCSExamCSV() {
+  // Array of questions in the format: [question, option1, option2, option3, option4, correctAnswer]
+  const questions = [
+    ["In which year was Mahatma Gandhi born?", "1865", "1869", "1872", "1880", "1869"],
+    ["What was Mahatma Gandhi's full name?", "Mohandas Karamchand Gandhi", "Mahatma Karamchand Gandhi", "Mohandas Krishna Gandhi", "Mahatma Krishna Gandhi", "Mohandas Karamchand Gandhi"],
+    ["Where was Mahatma Gandhi born?", "Mumbai", "Delhi", "Porbandar", "Kolkata", "Porbandar"],
+    ["What profession did Mahatma Gandhi study for in London?", "Doctor", "Engineer", "Lawyer", "Teacher", "Lawyer"],
+    ["In which year did Mahatma Gandhi return to India from South Africa?", "1905", "1910", "1915", "1920", "1915"],
+    ["What was the name of the movement Gandhi started in South Africa to fight discrimination?", "Satyagraha", "Dandi Salt March", "Quit India", "Non-Cooperation", "Satyagraha"],
+    ["Which event marked Gandhi's first major public protest in India?", "Dandi Salt March", "Champaran Satyagraha", "Quit India Movement", "Non-Cooperation Movement", "Champaran Satyagraha"],
+    ["In which year did the Champaran Satyagraha take place?", "1915", "1917", "1920", "1922", "1917"],
+    ["What was the main objective of the Non-Cooperation Movement launched by Gandhi in 1920?", "Complete independence", "Boycott British goods", "Promote education", "End untouchability", "Boycott British goods"],
+    ["Which incident led Gandhi to withdraw the Non-Cooperation Movement in 1922?", "Jallianwala Bagh Massacre", "Chauri Chaura Incident", "Dandi Salt March", "Simon Commission", "Chauri Chaura Incident"],
+    ["In which year did Gandhi lead the Dandi Salt March?", "1925", "1930", "1935", "1940", "1930"],
+    ["What was the primary goal of the Dandi Salt March?", "Protest against British taxes on salt", "Demand complete independence", "Promote non-violence", "End untouchability", "Protest against British taxes on salt"],
+    ["Which movement did Gandhi launch in 1942?", "Non-Cooperation Movement", "Quit India Movement", "Civil Disobedience Movement", "Satyagraha Movement", "Quit India Movement"],
+    ["What was the slogan of the Quit India Movement?", "Do or Be Done", "Quit India Now", "Do or Die", "Freedom Now", "Do or Die"],
+    ["Where was Gandhi imprisoned after launching the Quit India Movement?", "Yerwada Jail", "Aga Khan Palace", "Sabarmati Ashram", "Tihar Jail", "Aga Khan Palace"],
+    ["What was the name of the ashram Gandhi founded in Ahmedabad?", "Sevagram Ashram", "Sabarmati Ashram", "Phoenix Ashram", "Wardha Ashram", "Sabarmati Ashram"],
+    ["Which newspaper did Gandhi start in South Africa?", "Harijan", "Young India", "Indian Opinion", "Navjivan", "Indian Opinion"],
+    ["What was the name of the weekly newspaper Gandhi published in India?", "Harijan", "Indian Opinion", "The Hindu", "Times of India", "Harijan"],
+    ["What term did Gandhi use for the untouchables to promote their dignity?", "Dalits", "Harijan", "Shudras", "Adivasis", "Harijan"],
+    ["Which book is considered Gandhi's autobiography?", "My Experiments with Truth", "Hind Swaraj", "Satyagraha in South Africa", "The Story of My Life", "My Experiments with Truth"],
+    ["In which year was Gandhi assassinated?", "1945", "1947", "1948", "1950", "1948"],
+    ["Who assassinated Mahatma Gandhi?", "Nathuram Godse", "Vinayak Savarkar", "Bhagat Singh", "Subhas Chandra Bose", "Nathuram Godse"],
+    ["Where was Gandhi assassinated?", "Mumbai", "Delhi", "Kolkata", "Ahmedabad", "Delhi"],
+    ["What was Gandhi's philosophy of non-violence called?", "Ahimsa", "Satyagraha", "Swadeshi", "Sarvodaya", "Ahimsa"],
+    ["Which international figure was inspired by Gandhi's philosophy of non-violence?", "Nelson Mandela", "Albert Einstein", "Winston Churchill", "Joseph Stalin", "Nelson Mandela"]
+  ];
+
+  // CSV header
+  const header = "Question,Option1,Option2,Option3,Option4,CorrectAnswer\n";
+  
+  // Convert questions array to CSV rows
+  let csvContent = header;
+  questions.forEach(row => {
+    const escapedRow = row.map(item => `"${item.replace(/"/g, '""')}"`).join(",");
+    csvContent += escapedRow + "\n";
+  });
+
+  // Create the CSV file in Google Drive
+  const folder = DriveApp.getRootFolder(); // You can change this to a specific folder
+  const fileName = "TCS_CGL_Exam_Mahatma_Gandhi.csv";
+  const file = folder.createFile(fileName, csvContent, MimeType.CSV);
+  
+  // Log the file URL for easy access
+  Logger.log("CSV file created: " + file.getUrl());
+}
+
+// Function to run the script from the Google Sheet
+function onOpen() {
+  const ui = SpreadsheetApp.getUi();
+  ui.createMenu("TCS Exam")
+    .addItem("Generate CSV", "generateTCSExamCSV")
+    .addToUi();
+}
